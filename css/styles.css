@@ -735,6 +735,10 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
   object-position: bottom;
 }
 
+.gallery__img-mobile {
+  display: none;
+}
+
 .gallery__controls {
   position: absolute;
   top: 314px;
@@ -1808,33 +1812,5 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 }
 
 .preview-switch {
-  position: fixed;
-  z-index: 10000;
-  right: 16px;
-  bottom: 16px;
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 8px;
-  background: rgba(20, 20, 20, 0.85);
-  zoom: calc(1 / var(--page-zoom, 1));
-}
-
-.preview-switch a {
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1;
-  color: #fff;
-  opacity: 0.6;
-}
-
-.preview-switch a:hover,
-html.is-mobile .preview-switch a[href="?mobile=1"],
-html:not(.is-mobile) .preview-switch a[href="?desktop=1"] {
-  opacity: 1;
-  background: #fff;
-  color: #141414;
+  display: none;
 }

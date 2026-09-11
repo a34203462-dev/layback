@@ -7,9 +7,15 @@ html.is-mobile .is-mobile-break {
   display: inline;
 }
 
+html.is-mobile {
+  --sticky-cta-bottom: 5px;
+  --sticky-cta-stack: 104px;
+  --sticky-cta-gap: 22px;
+}
+
 html.is-mobile .page {
   width: 393px;
-  height: calc(5600px + var(--hero-h));
+  height: calc(5626px + var(--hero-h));
 }
 
 html.is-mobile .ticker {
@@ -56,11 +62,12 @@ html.is-mobile .hero-stack {
 
 html.is-mobile .hero {
   width: 393px;
-  padding: 158px 16px 196px;
+  height: var(--hero-h);
+  padding: 158px 16px calc(var(--sticky-cta-bottom) + var(--sticky-cta-stack) + var(--sticky-cta-gap));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow: visible;
+  overflow: hidden;
 }
 
 html.is-mobile .hero__bg-desktop {
@@ -134,7 +141,7 @@ html.is-mobile .hero__cta {
   position: fixed;
   z-index: 5000;
   left: 50%;
-  bottom: 32px;
+  bottom: var(--sticky-cta-bottom);
   width: 361px;
   flex-direction: column;
   gap: 8px;
@@ -223,7 +230,7 @@ html.is-mobile .gallery {
 
 html.is-mobile .gallery__viewport {
   width: 393px;
-  height: 600px;
+  height: 540px;
   overflow-x: auto !important;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -245,7 +252,7 @@ html.is-mobile .gallery__track {
   align-items: stretch;
   gap: 8px;
   width: max-content;
-  height: 600px;
+  height: 540px;
   padding: 0 8px;
   transform: none !important;
   will-change: auto;
@@ -255,8 +262,9 @@ html.is-mobile .gallery__photo,
 html.is-mobile .gallery__photo.is-center {
   position: relative;
   width: 349px;
-  height: 600px;
+  height: 540px;
   overflow: hidden;
+  border-radius: 4px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   flex-shrink: 0;
@@ -264,31 +272,34 @@ html.is-mobile .gallery__photo.is-center {
 }
 
 html.is-mobile .gallery__photo img {
-  position: relative;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   display: block;
-  width: 349px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
   pointer-events: none;
   -webkit-user-drag: none;
   user-select: none;
 }
 
 html.is-mobile .gallery__photo--04 img {
-  position: absolute;
   inset: auto;
   left: -15.29%;
   top: -14.79%;
   width: 131.52%;
   height: 114.74%;
-  max-width: none;
-  object-fit: cover;
+}
+
+html.is-mobile .gallery__img-desktop {
+  display: none !important;
 }
 
 html.is-mobile .gallery__photo--05 img {
-  object-fit: cover;
-  object-position: bottom;
+  object-fit: fill;
+  object-position: center;
 }
 
 html.is-mobile .gallery__controls,
@@ -334,14 +345,14 @@ html.is-mobile .services {
 
 html.is-mobile .services__title {
   width: 100%;
-  font-size: 48px;
+  font-size: 52px;
   line-height: 0.9;
   white-space: normal;
 }
 
 /* Location */
 html.is-mobile .location {
-  top: calc(2196px + var(--hero-h));
+  top: calc(2248px + var(--hero-h));
   left: 16px;
   transform: translate3d(0, var(--rise, 0px), 0);
   width: 361px;
@@ -466,10 +477,13 @@ html.is-mobile .reviews-slide.swiper-slide {
   width: 175px;
   height: 308px;
   margin: 0;
-  filter: blur(1.5px);
   z-index: 1;
   overflow: hidden;
   border-radius: 6px;
+}
+
+html.is-mobile .reviews-slide:not(.is-active) {
+  filter: blur(1.5px);
 }
 
 html.is-mobile .reviews-slide.is-active {
@@ -504,7 +518,7 @@ html.is-mobile .reviews__more-text {
 
 /* Sales */
 html.is-mobile .sales {
-  top: calc(3962px + var(--hero-h));
+  top: calc(3988px + var(--hero-h));
   width: 393px;
   height: 190px;
   overflow: hidden;
@@ -549,7 +563,7 @@ html.is-mobile .sales__dots {
 
 /* CTA */
 html.is-mobile .cta {
-  top: calc(4195px + var(--hero-h));
+  top: calc(4221px + var(--hero-h));
   left: 16px;
   width: 361px;
 }
@@ -560,7 +574,7 @@ html.is-mobile .cta__btn {
 
 /* Footer */
 html.is-mobile .footer {
-  top: calc(4395px + var(--hero-h));
+  top: calc(4421px + var(--hero-h));
   width: 393px;
   height: 1205px;
 }

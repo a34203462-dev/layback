@@ -11,8 +11,7 @@
       var vp = mobile ? 393 : 1512;
       var hero = mobile ? 852 : 982;
       var z = window.innerWidth / vp;
-      var h = window.innerHeight / z;
-      if (mobile) h = Math.max(hero, h);
+      var h = ((mobile && window.visualViewport) ? window.visualViewport.height : window.innerHeight) / z;
       document.documentElement.classList.toggle("is-mobile", mobile);
       document.documentElement.style.zoom = z;
       document.documentElement.style.setProperty("--page-zoom", String(z));
@@ -22,8 +21,8 @@
     })();
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=8">
-  <link rel="stylesheet" href="css/mobile.css?v=8">
+  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/mobile.css?v=10">
 </head>
 <body>
   <div class="page">
@@ -108,7 +107,10 @@
             <div class="gallery__photo" data-photo="1"><img src="assets/figma-g02.png" alt=""></div>
             <div class="gallery__photo is-center" data-photo="2"><img src="assets/figma-g03.png" alt=""></div>
             <div class="gallery__photo gallery__photo--04" data-photo="3"><img src="assets/figma-g04.png" alt=""></div>
-            <div class="gallery__photo gallery__photo--05" data-photo="4"><img src="assets/figma-g05.png" alt=""></div>
+            <div class="gallery__photo gallery__photo--05" data-photo="4">
+              <img class="gallery__img-desktop" src="assets/figma-g05.png" alt="">
+              <img class="gallery__img-mobile" src="assets/figma-g05-mobile.png" alt="">
+            </div>
           </div>
           <div class="gallery__controls">
             <button class="gallery__arrow gallery__arrow--prev" type="button" aria-label="Назад">
@@ -334,11 +336,7 @@
     <a class="hero__cta-btn hero__cta-btn--solid" href="https://n87133.yclients.com">онлайн-запись</a>
     <a class="hero__cta-btn hero__cta-btn--ghost" href="https://lay-back.ru/sertifikaty/">сертификат</a>
   </div>
-  <div class="preview-switch">
-    <a href="?desktop=1">Desktop</a>
-    <a href="?mobile=1">Mobile</a>
-  </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

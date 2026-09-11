@@ -18,9 +18,13 @@
     return isMobile() ? VIEWPORT_MOBILE : VIEWPORT_DESKTOP;
   }
 
+  function viewHeight() {
+    return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  }
+
   function applyScale() {
     var width = window.innerWidth;
-    var height = window.innerHeight;
+    var height = viewHeight();
     if (!width || !height) return;
     var q = location.search;
     var forcedMobile = /\bmobile\b/.test(q);
@@ -30,7 +34,6 @@
     var heroDesign = mobile ? HERO_MOBILE : HERO_DESKTOP;
     var zoom = width / vp;
     var heroH = height / zoom;
-    if (mobile) heroH = Math.max(HERO_MOBILE, heroH);
     document.documentElement.classList.toggle("is-mobile", mobile);
     document.documentElement.style.zoom = String(zoom);
     document.documentElement.style.setProperty("--page-zoom", String(zoom));
@@ -42,6 +45,9 @@
   function initScale() {
     applyScale();
     window.addEventListener("resize", applyScale);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", applyScale);
+    }
   }
 
   function initTextReveal() {
@@ -172,12 +178,11 @@
       root.style.setProperty("--hero-text-y", textY + "px");
 
       var isLight = false;
-      var zoom = Number(document.documentElement.style.zoom) || 1;
-      var layoutVh = window.innerHeight / zoom;
+      var viewH = viewHeight();
       if (isMobile() && amenities && lightTrigger) {
         isLight =
-          lightTrigger.getBoundingClientRect().top <= layoutVh * 0.55 ||
-          amenities.getBoundingClientRect().top <= layoutVh * 0.9;
+          lightTrigger.getBoundingClientRect().top <= viewH * 0.42 ||
+          amenities.getBoundingClientRect().top <= viewH * 0.92;
       } else if (lightTrigger) {
         isLight = lightTrigger.getBoundingClientRect().top <= window.innerHeight / 2;
       }
@@ -201,7 +206,7 @@
       if (isMobile() && heroCta && pageCta) {
         heroCta.classList.toggle(
           "is-hidden",
-          pageCta.getBoundingClientRect().top <= layoutVh - 8
+          pageCta.getBoundingClientRect().top <= viewH - 24
         );
       }
 
@@ -340,15 +345,61 @@
     });
   }
 
+  function initMobileGallery() {
+    var view = document.querySelector(".gallery__viewport");
+    var track = document.getElementById("galleryTrack");
+    if (!view || !track) return;
+
+    var originals = Array.from(track.querySelectorAll(".gallery__photo"));
+    var count = originals.length;
+    if (!count) return;
+
+    cloneSet(originals, track, false);
+    cloneSet(originals, track, true);
+
+    var slide = PHOTO_MOBILE + GAP_MOBILE;
+    var startX = 8 + count * slide;
+    var cycle = count * slide;
+    var jumping = false;
+
+    function jumpTo(x) {
+      jumping = true;
+      var snap = view.style.scrollSnapType;
+      view.style.scrollSnapType = "none";
+      view.scrollLeft = x;
+      view.style.scrollSnapType = snap || "";
+      requestAnimationFrame(function () {
+        jumping = false;
+      });
+    }
+
+    var wrapTimer;
+
+    function wrap() {
+      if (jumping) return;
+      var x = view.scrollLeft;
+      if (x < startX - slide * 0.4) jumpTo(x + cycle);
+      else if (x >= startX + cycle - slide * 0.4) jumpTo(x - cycle);
+    }
+
+    jumpTo(startX);
+    view.addEventListener("scroll", function () {
+      clearTimeout(wrapTimer);
+      wrapTimer = setTimeout(wrap, 80);
+    }, { passive: true });
+    view.addEventListener("scrollend", wrap);
+  }
+
   function initGallery() {
     if (isMobile()) {
       var track = document.getElementById("galleryTrack");
-      var galleryView = document.querySelector(".gallery__viewport");
       if (track) {
         track.style.setProperty("transform", "none", "important");
         track.style.setProperty("transition", "none", "important");
       }
-      if (galleryView) galleryView.scrollLeft = 0;
+      try {
+        initMobileGallery();
+      } catch (err) {}
       return;
     }
     initLoopedTrack({
