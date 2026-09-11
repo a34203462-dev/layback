@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="83" height="32" viewBox="0 0 83 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7" y="-7" width="97" height="46"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(3.5px);clip-path:url(#bgblur_0_0_599_clip_path);height:100%;width:100%"></div></foreignObject><g id="Desktop / Button" data-figma-bg-blur-radius="7">
+<rect x="0.5" y="0.5" width="82" height="31" rx="15.5" fill="#141414" fill-opacity="0.2"/>
+<rect x="0.5" y="0.5" width="82" height="31" rx="15.5" stroke="white"/>
+<path id="Arrow" fill-rule="evenodd" clip-rule="evenodd" d="M45.5009 10.2386L50.758 15.4239C51.0807 15.7421 51.0807 16.2579 50.758 16.5761L45.5009 21.7614C45.1783 22.0795 44.6552 22.0795 44.3326 21.7614C44.01 21.4432 44.01 20.9273 44.3326 20.6091L48.1796 16.8148H32V15.1852H48.1796L44.3326 11.3909C44.01 11.0727 44.01 10.5568 44.3326 10.2386C44.6552 9.92045 45.1783 9.92045 45.5009 10.2386Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_599_clip_path" transform="translate(7 7)"><rect x="0.5" y="0.5" width="82" height="31" rx="15.5"/>
+</clipPath></defs>
+</svg>
