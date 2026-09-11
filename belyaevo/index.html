@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LAY BACK — массаж у метро Третьяковская</title>
+  <title>LAY BACK — массаж у метро Беляево</title>
   <script>
     (function () {
       var q = location.search;
@@ -12,6 +12,7 @@
       var hero = mobile ? 852 : 982;
       var z = window.innerWidth / vp;
       var h = ((mobile && window.visualViewport) ? window.visualViewport.height : window.innerHeight) / z;
+      document.documentElement.classList.add("is-belyaevo");
       document.documentElement.classList.toggle("is-mobile", mobile);
       document.documentElement.style.zoom = z;
       document.documentElement.style.setProperty("--page-zoom", String(z));
@@ -21,21 +22,22 @@
     })();
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=10">
-  <link rel="stylesheet" href="css/mobile.css?v=10">
+  <link rel="stylesheet" href="../css/styles.css?v=10">
+  <link rel="stylesheet" href="../css/mobile.css?v=10">
+  <link rel="stylesheet" href="../css/belyaevo.css?v=1">
 </head>
 <body>
   <div class="page">
     <header class="header js-header">
       <a class="header__logo" href="https://lay-back.ru/">
-        <img src="assets/logo.png" alt="LAY BACK">
+        <img src="../assets/logo.png" alt="LAY BACK">
       </a>
       <div class="header__actions">
         <div class="header__buttons">
           <a class="btn-ghost" href="https://lay-back.ru/sertifikaty/">сертификат</a>
           <a class="btn-ghost" href="https://n87133.yclients.com">онлайн-запись</a>
           <button class="btn-menu" type="button" aria-label="Открыть меню">
-            <img src="assets/menu.svg" alt="">
+            <img src="../assets/menu.svg" alt="">
           </button>
         </div>
       </div>
@@ -44,19 +46,16 @@
     <div class="hero-stack">
     <section class="hero">
       <div class="hero__bg">
-        <img class="hero__bg-desktop" src="assets/hero.png" alt="">
-        <img class="hero__bg-mobile" src="assets/hero-mobile.png" alt="">
+        <img class="hero__bg-desktop" src="../assets/belyaevo/hero.png" alt="">
+        <img class="hero__bg-mobile" src="../assets/belyaevo/hero-mobile.png" alt="">
       </div>
       <p class="hero__brand font-bebas"><span class="hero__dash-spacer" aria-hidden="true">— </span>LAY BACK</p>
-      <div class="hero__knockout">
-        <img src="assets/hero-knockout.png?v=2" alt="">
-      </div>
       <div class="hero__overlay"></div>
       <div class="hero__titles font-bebas">
-        <p class="hero__title">— МАССАЖ у метро<br>третьяковская</p>
+        <p class="hero__title">— МАССАЖ у метро<br>беляево</p>
         <div class="hero__meta">
-          <p>м. Третьяковская<span class="hero__meta-slash"> / </span><span class="hero__meta-break"></span>м. Новокузнецкая</p>
-          <p>Большая Ордынка, 13/9, стр. 1</p>
+          <p>м. Беляево<span class="hero__meta-slash"> / </span><span class="hero__meta-break"></span>м. Университет дружбы народов</p>
+          <p>Миклухо-Маклая, 37</p>
         </div>
       </div>
     </section>
@@ -103,28 +102,40 @@
       <div class="gallery">
         <div class="gallery__viewport">
           <div class="gallery__track" id="galleryTrack">
-            <div class="gallery__photo" data-photo="0"><img src="assets/figma-g01.png" alt=""></div>
-            <div class="gallery__photo" data-photo="1"><img src="assets/figma-g02.png" alt=""></div>
-            <div class="gallery__photo is-center" data-photo="2"><img src="assets/figma-g03.png" alt=""></div>
-            <div class="gallery__photo gallery__photo--04" data-photo="3"><img src="assets/figma-g04.png" alt=""></div>
-            <div class="gallery__photo gallery__photo--05" data-photo="4">
-              <img class="gallery__img-desktop" src="assets/figma-g05.png" alt="">
-              <img class="gallery__img-mobile" src="assets/figma-g05-mobile.png" alt="">
+            <div class="gallery__photo" data-photo="0">
+              <img class="gallery__img-desktop" src="../assets/belyaevo/d-g01.png" alt="">
+              <img class="gallery__img-mobile" src="../assets/belyaevo/m-g04.png" alt="">
+            </div>
+            <div class="gallery__photo" data-photo="1">
+              <img class="gallery__img-desktop" src="../assets/belyaevo/d-g02.png" alt="">
+              <img class="gallery__img-mobile" src="../assets/belyaevo/m-g03.png" alt="">
+            </div>
+            <div class="gallery__photo is-center" data-photo="2">
+              <img class="gallery__img-desktop" src="../assets/belyaevo/d-g03.png" alt="">
+              <img class="gallery__img-mobile" src="../assets/belyaevo/m-g01.png" alt="">
+            </div>
+            <div class="gallery__photo" data-photo="3">
+              <img class="gallery__img-desktop" src="../assets/belyaevo/d-g04.png" alt="">
+              <img class="gallery__img-mobile" src="../assets/belyaevo/m-g02.png" alt="">
+            </div>
+            <div class="gallery__photo" data-photo="4">
+              <img class="gallery__img-desktop" src="../assets/belyaevo/d-g05.png" alt="">
+              <img class="gallery__img-mobile" src="../assets/belyaevo/m-g05.png" alt="">
             </div>
           </div>
           <div class="gallery__controls">
             <button class="gallery__arrow gallery__arrow--prev" type="button" aria-label="Назад">
-              <img src="assets/arrow-gallery-l.svg" alt="">
+              <img src="../assets/arrow-gallery-l.svg" alt="">
             </button>
             <button class="gallery__arrow gallery__arrow--next" type="button" aria-label="Вперёд">
-              <img src="assets/arrow-gallery-r.svg" alt="">
+              <img src="../assets/arrow-gallery-r.svg" alt="">
             </button>
           </div>
         </div>
         <a class="link-arrow" href="https://lay-back.ru/o-nas/">
           <span class="link-arrow__text">о LAY BACK</span>
           <span class="link-arrow__icon">
-            <img src="assets/arrow-text.svg" alt="">
+            <img src="../assets/arrow-text.svg" alt="">
           </span>
         </a>
       </div>
@@ -133,16 +144,16 @@
     <section class="amenities">
       <div class="amenity"><span class="font-bebas">у нас есть душ</span></div>
       <div class="amenity"><span class="font-bebas">рядом метро</span></div>
-      <div class="amenity"><span class="font-bebas">есть платная парковка</span></div>
+      <div class="amenity"><span class="font-bebas">бесплатная городская парковка</span></div>
       <div class="amenity"><span class="font-bebas">радотаем до 22:00</span></div>
     </section>
 
     <section class="services">
-      <p class="services__title font-bebas">В студии <br class="is-mobile-break">на Третьяковской доступны разные виды массажа<br>— от расслабляющего массажа спины<br>до спортивного</p>
+      <p class="services__title font-bebas">В студии <br class="is-mobile-break">на Беляево доступны разные виды массажа<br>— от расслабляющего массажа спины<br>до спортивного</p>
       <a class="link-arrow" href="https://lay-back.ru/uslugi/">
         <span class="link-arrow__text">виды массажа</span>
         <span class="link-arrow__icon">
-          <img src="assets/arrow-text.svg" alt="">
+          <img src="../assets/arrow-text.svg" alt="">
         </span>
       </a>
     </section>
@@ -151,39 +162,44 @@
       <div class="location__row">
         <div class="location__address">
           <h2 class="location__title font-bebas">до нас легко добраться</h2>
-          <p class="location__lead">Мы в Замоскворечье,<br class="is-mobile-break"> на пересечении<br>Б. Ордынки и Пятницкой</p>
+          <p class="location__lead">Студия находится в Коньково,<br>на улице Миклухо-Маклая</p>
           <div class="location__metros">
             <div class="location__metro">
               <div class="location__metro-icon">
-                <img src="assets/metro-icon.png" alt="">
+                <img src="../assets/metro-icon.png" alt="">
               </div>
-              <span>5 минут от метро Третьяковская</span>
+              <span>5 минут от метро Беляево</span>
             </div>
             <div class="location__metro">
               <div class="location__metro-icon">
-                <img src="assets/metro-icon.png" alt="">
+                <img src="../assets/metro-icon.png" alt="">
               </div>
-              <span>5 минут от метро Новокузнецкая</span>
+              <span>12 минут от метро Университет дружбы народов</span>
             </div>
           </div>
-          <p class="location__full">Москва, м.Третьяковская, Большая Ордынка, д. 13/9, стр.1 (вход со стороны Черниговский переулок д. 9/13)</p>
+          <p class="location__full">Москва, м.Беляево, ул. Миклухо-Маклая д.37, ТК «Перекресток», 3 Этаж</p>
         </div>
         <div class="location__map">
           <div class="location__map-img">
-            <iframe class="js-map-frame" title="Карта студии LAY BACK" src="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map"></iframe>
+            <iframe class="js-map-frame" title="Карта студии LAY BACK" src="https://yandex.ru/map-widget/v1/?ll=37.5294%2C55.6775&z=16&pt=37.5294,55.6775,pm2rdm&l=map"></iframe>
           </div>
           <div class="map-switcher map-switcher--location">
-            <button class="map-switcher__item js-move-map-btn is-active" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map">
-              <span class="map-switcher__icon"><img src="assets/icon-metro.svg" alt=""></span>
+            <button class="map-switcher__item js-move-map-btn is-active" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.5294%2C55.6775&z=16&pt=37.5294,55.6775,pm2rdm&l=map">
+              <span class="map-switcher__icon"><img src="../assets/icon-metro.svg" alt=""></span>
+              <span class="map-switcher__label">м. Беляево</span>
+            </button>
+            <button class="map-switcher__item js-move-map-btn" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map">
+              <span class="map-switcher__icon"><img src="../assets/icon-metro-inactive.svg" alt=""></span>
               <span class="map-switcher__label">м. Третьяковская</span>
             </button>
           </div>
         </div>
       </div>
-      <a class="link-arrow" href="belyaevo/">
-        <span class="link-arrow__text">Мы у <span class="location__metro-word">метро </span>Беляево</span>
+      <a class="link-arrow" href="../">
+        <span class="link-arrow__text link-arrow__text--desktop">Мы у метро Третьяковка</span>
+        <span class="link-arrow__text link-arrow__text--mobile">Мы у Третьяковки</span>
         <span class="link-arrow__icon">
-          <img src="assets/arrow-text.svg" alt="">
+          <img src="../assets/arrow-text.svg" alt="">
         </span>
       </a>
     </section>
@@ -192,38 +208,38 @@
       <h2 class="reviews__title font-bebas">о нас <br class="is-mobile-break">говорят</h2>
       <div class="reviews__pin-slot" aria-hidden="true">
         <div class="reviews__pin">
-          <img class="reviews__pin-1" src="assets/yandex-btn-1.svg" alt="">
-          <img class="reviews__pin-2" src="assets/yandex-btn-2.svg" alt="">
-          <img class="reviews__pin-3" src="assets/yandex-btn-3.svg" alt="">
-          <img class="reviews__pin-4" src="assets/yandex-btn-4.svg" alt="">
-          <img class="reviews__pin-5" src="assets/yandex-btn-5.svg" alt="">
+          <img class="reviews__pin-1" src="../assets/yandex-btn-1.svg" alt="">
+          <img class="reviews__pin-2" src="../assets/yandex-btn-2.svg" alt="">
+          <img class="reviews__pin-3" src="../assets/yandex-btn-3.svg" alt="">
+          <img class="reviews__pin-4" src="../assets/yandex-btn-4.svg" alt="">
+          <img class="reviews__pin-5" src="../assets/yandex-btn-5.svg" alt="">
         </div>
       </div>
       <div class="reviews__slider js-reviews-slider">
         <div class="reviews__track" id="reviewsTrack">
-          <div class="reviews-slide"><img src="assets/review-p6.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-p5.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-p4.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-a2.png" alt=""></div>
-          <div class="reviews-slide is-active"><img src="assets/review-active.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-a1.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-p3.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-p2.png" alt=""></div>
-          <div class="reviews-slide"><img src="assets/review-p1.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p6.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p5.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p4.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-a2.png" alt=""></div>
+          <div class="reviews-slide is-active"><img src="../assets/review-active.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-a1.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p3.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p2.png" alt=""></div>
+          <div class="reviews-slide"><img src="../assets/review-p1.png" alt=""></div>
         </div>
         <div class="reviews-slider__nav">
           <button class="reviews__arrow reviews__arrow--prev" type="button" aria-label="Назад">
-            <img src="assets/arrow-reviews-l.svg" alt="">
+            <img src="../assets/arrow-reviews-l.svg" alt="">
           </button>
           <button class="reviews__arrow reviews__arrow--next" type="button" aria-label="Вперёд">
-            <img src="assets/arrow-reviews-r.svg" alt="">
+            <img src="../assets/arrow-reviews-r.svg" alt="">
           </button>
         </div>
       </div>
       <a class="reviews__more" href="https://yandex.ru/maps">
         <span class="reviews__more-text">больше отзывов:  </span>
         <span class="reviews__more-logo">
-          <img src="assets/yandex-maps-logo.svg" alt="Яндекс">
+          <img src="../assets/yandex-maps-logo.svg" alt="Яндекс">
         </span>
       </a>
     </section>
@@ -232,7 +248,7 @@
       <div class="swiper js-offers-slider">
         <div class="swiper-wrapper">
           <article class="swiper-slide sale-card sale-card--wake">
-            <div class="sale-card__art"><img src="assets/sale-art5.png" alt=""></div>
+            <div class="sale-card__art"><img src="../assets/sale-art5.png" alt=""></div>
             <div class="sale-card__content">
               <p class="sale-card__title font-bebas">акция «пробуждение»</p>
               <p class="sale-card__discount font-bebas">-20%</p>
@@ -240,16 +256,16 @@
             </div>
           </article>
           <article class="swiper-slide sale-card sale-card--march">
-            <div class="sale-card__art"><img src="assets/sale-art4.png" alt=""></div>
+            <div class="sale-card__art"><img src="../assets/sale-art4.png" alt=""></div>
             <div class="sale-card__content">
               <p class="sale-card__title font-bebas">акция 8 марта!</p>
               <p class="sale-card__text">покупая абонемент - получаешь сертифик в ЗЯ на 3000р</p>
-              <div class="sale-card__logo"><img src="assets/sale-logo-zy.png" alt=""></div>
+              <div class="sale-card__logo"><img src="../assets/sale-logo-zy.png" alt=""></div>
             </div>
           </article>
           <article class="swiper-slide sale-card sale-card--tg">
             <div class="sale-card__art-wrap">
-              <div class="sale-card__art"><img src="assets/sale-art3.png" alt=""></div>
+              <div class="sale-card__art"><img src="../assets/sale-art3.png" alt=""></div>
             </div>
             <div class="sale-card__content">
               <p class="sale-card__title font-bebas">3000₽</p>
@@ -259,7 +275,7 @@
           </article>
           <article class="swiper-slide sale-card sale-card--friend">
             <div class="sale-card__art-wrap">
-              <div class="sale-card__art"><img src="assets/sale-art2.png" alt=""></div>
+              <div class="sale-card__art"><img src="../assets/sale-art2.png" alt=""></div>
             </div>
             <div class="sale-card__content">
               <p class="sale-card__title font-bebas">Приведи друга - получи 1000₽</p>
@@ -268,7 +284,7 @@
           </article>
           <article class="swiper-slide sale-card sale-card--pass">
             <div class="sale-card__art-wrap">
-              <div class="sale-card__art"><img src="assets/sale-art1.png" alt=""></div>
+              <div class="sale-card__art"><img src="../assets/sale-art1.png" alt=""></div>
             </div>
             <div class="sale-card__content">
               <p class="sale-card__title font-bebas">Выгодные абонементы</p>
@@ -311,14 +327,14 @@
           </nav>
         </div>
         <div class="footer__map">
-          <iframe class="js-map-frame" title="Карта студии LAY BACK" src="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map"></iframe>
+          <iframe class="js-map-frame" title="Карта студии LAY BACK" src="https://yandex.ru/map-widget/v1/?ll=37.5294%2C55.6775&z=16&pt=37.5294,55.6775,pm2rdm&l=map"></iframe>
           <div class="map-switcher map-switcher--footer">
-            <button class="map-switcher__item js-move-map-btn" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.5294%2C55.6775&z=16&pt=37.5294,55.6775,pm2rdm&l=map">
-              <span class="map-switcher__icon"><img src="assets/icon-metro.svg" alt=""></span>
+            <button class="map-switcher__item js-move-map-btn is-active" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.5294%2C55.6775&z=16&pt=37.5294,55.6775,pm2rdm&l=map">
+              <span class="map-switcher__icon"><img src="../assets/icon-metro.svg" alt=""></span>
               <span class="map-switcher__label">м. Беляево</span>
             </button>
-            <button class="map-switcher__item js-move-map-btn is-active" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map">
-              <span class="map-switcher__icon"><img src="assets/icon-metro-inactive.svg" alt=""></span>
+            <button class="map-switcher__item js-move-map-btn" type="button" data-map="https://yandex.ru/map-widget/v1/?ll=37.6244%2C55.7416&z=16&pt=37.6244,55.7416,pm2rdm&l=map">
+              <span class="map-switcher__icon"><img src="../assets/icon-metro-inactive.svg" alt=""></span>
               <span class="map-switcher__label">м. Третьяковская</span>
             </button>
           </div>
@@ -327,7 +343,7 @@
       <div class="footer__legal">
         <p class="footer__legal-text">Услуги, предоставляемые "Lay Back" не являются медицинским массажем и предназначены только для здоровых людей,<br>желающих укрепить свое здоровье. Информация на сайте носит рекламно-ознакомительный характер<br>и может отличаться от фактической. С полным перечнем оказываемых услуг можно ознакомиться<br>в действующем прейскуранте по месту оказания услуг.</p>
         <a class="footer__legal-logo" href="https://lay-back.ru/">
-          <img src="assets/logo.png" alt="LAY BACK">
+          <img src="../assets/logo.png" alt="LAY BACK">
         </a>
       </div>
     </footer>
@@ -337,6 +353,6 @@
     <a class="hero__cta-btn hero__cta-btn--ghost" href="https://lay-back.ru/sertifikaty/">сертификат</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/main.js?v=10"></script>
+  <script src="../js/main.js?v=10"></script>
 </body>
 </html>

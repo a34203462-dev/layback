@@ -1,0 +1,63 @@
+/* Belyaevo location overrides */
+
+html.is-belyaevo .hero__knockout {
+  display: none;
+}
+
+html.is-belyaevo .link-arrow__text--mobile {
+  display: none;
+}
+
+html.is-belyaevo.is-mobile .link-arrow__text--desktop {
+  display: none;
+}
+
+html.is-belyaevo.is-mobile .link-arrow__text--mobile {
+  display: inline;
+}
+
+html.is-belyaevo.is-mobile .hero__bg {
+  overflow: hidden;
+}
+
+html.is-belyaevo.is-mobile .hero__bg-mobile {
+  position: absolute;
+  left: -22.24%;
+  top: -2.7%;
+  width: 148.37%;
+  height: 102.7%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+html.is-belyaevo.is-mobile .hero__meta {
+  width: 280px;
+}
+
+html.is-belyaevo.is-mobile .gallery__viewport,
+html.is-belyaevo.is-mobile .gallery__track,
+html.is-belyaevo.is-mobile .gallery__photo,
+html.is-belyaevo.is-mobile .gallery__photo.is-center {
+  height: 600px;
+}
+
+html.is-belyaevo .gallery__photo img,
+html.is-belyaevo.is-mobile .gallery__photo img {
+  object-fit: fill;
+  object-position: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html.is-belyaevo.is-mobile .location__metro span {
+  white-space: normal;
+  width: 312px;
+}
+
+html.is-belyaevo.is-mobile .map-switcher--location {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
