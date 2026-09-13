@@ -218,7 +218,7 @@ html.is-mobile .about__intro p {
   white-space: normal;
 }
 
-html.is-mobile .about__intro br {
+html.is-mobile .about__intro p:first-child br {
   display: none;
 }
 
