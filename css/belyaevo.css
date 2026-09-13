@@ -4,6 +4,34 @@ html.is-belyaevo .hero__knockout {
   display: none;
 }
 
+html.is-belyaevo:not(.is-mobile) .hero__brand {
+  top: 506px;
+  z-index: 2;
+}
+
+html.is-belyaevo:not(.is-mobile) .hero__titles {
+  top: 595px;
+  bottom: 110px;
+  justify-content: space-between;
+}
+
+html.is-belyaevo:not(.is-mobile) .hero__title {
+  width: 950px;
+  white-space: nowrap;
+}
+
+html.is-belyaevo .hero__title-nl {
+  display: none;
+}
+
+html.is-belyaevo .map-switcher--location .map-switcher__item {
+  cursor: pointer;
+}
+
+html.is-belyaevo .map-switcher--location .map-switcher__item:hover {
+  opacity: 0.75;
+}
+
 html.is-belyaevo .link-arrow__text--mobile {
   display: none;
 }
@@ -30,8 +58,35 @@ html.is-belyaevo.is-mobile .hero__bg-mobile {
   object-position: center top;
 }
 
+html.is-belyaevo.is-mobile .hero__title {
+  width: auto;
+  white-space: normal;
+}
+
+html.is-belyaevo.is-mobile .hero__title-nl {
+  display: revert;
+}
+
 html.is-belyaevo.is-mobile .hero__meta {
   width: 280px;
+}
+
+html.is-belyaevo.is-mobile .services {
+  gap: 40px;
+}
+
+html.is-belyaevo.is-mobile .services__title {
+  font-size: 48px;
+}
+
+html.is-belyaevo.is-mobile .location {
+  top: calc(2196px + var(--hero-h));
+}
+
+html.is-belyaevo.is-mobile .map-switcher--location .map-switcher__icon,
+html.is-belyaevo.is-mobile .map-switcher--location .map-switcher__icon img {
+  width: 12px;
+  height: 15px;
 }
 
 html.is-belyaevo.is-mobile .gallery__viewport,
