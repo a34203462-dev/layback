@@ -58,6 +58,16 @@ html.is-belyaevo.is-mobile .hero__bg-mobile {
   object-position: center top;
 }
 
+html.is-belyaevo.is-mobile .hero {
+  justify-content: flex-end;
+}
+
+html.is-belyaevo.is-mobile .hero__titles {
+  flex: none;
+  justify-content: flex-start;
+  gap: 27px;
+}
+
 html.is-belyaevo.is-mobile .hero__title {
   width: auto;
   white-space: normal;
