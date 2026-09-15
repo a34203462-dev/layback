@@ -531,7 +531,7 @@ button {
 .hero__title {
   margin: 0;
   font-size: 88px;
-  font-weight: inherit;
+  font-weight: 700;
   line-height: 1;
   white-space: pre;
 }
@@ -875,7 +875,7 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
   width: 1248px;
   margin: 0;
   font-size: 90px;
-  font-weight: inherit;
+  font-weight: 700;
   line-height: 0.9;
   text-align: center;
   color: #141414;
