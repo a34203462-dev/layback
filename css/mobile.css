@@ -15,7 +15,7 @@ html.is-mobile {
 
 html.is-mobile .page {
   width: 393px;
-  height: calc(6506px + var(--hero-h));
+  height: calc(6846px + var(--hero-h));
 }
 
 html.is-mobile .ticker {
@@ -420,6 +420,7 @@ html.is-mobile .faq {
   top: calc(3306px + var(--hero-h));
   left: 0;
   width: 393px;
+  z-index: 2;
 }
 
 html.is-mobile .faq__trigger {
@@ -454,7 +455,7 @@ html.is-mobile .faq__answer {
 
 /* Reviews */
 html.is-mobile .reviews {
-  top: calc(4066px + var(--hero-h));
+  top: calc(4406px + var(--hero-h));
   width: 393px;
   height: 688px;
   overflow: hidden;
@@ -552,7 +553,7 @@ html.is-mobile .reviews__more-text {
 
 /* Sales */
 html.is-mobile .sales {
-  top: calc(4868px + var(--hero-h));
+  top: calc(5208px + var(--hero-h));
   width: 393px;
   height: 190px;
   overflow: hidden;
@@ -597,7 +598,7 @@ html.is-mobile .sales__dots {
 
 /* CTA */
 html.is-mobile .cta {
-  top: calc(5101px + var(--hero-h));
+  top: calc(5441px + var(--hero-h));
   left: 16px;
   width: 361px;
 }
@@ -608,7 +609,7 @@ html.is-mobile .cta__btn {
 
 /* Footer */
 html.is-mobile .footer {
-  top: calc(5301px + var(--hero-h));
+  top: calc(5641px + var(--hero-h));
   width: 393px;
   height: 1205px;
 }

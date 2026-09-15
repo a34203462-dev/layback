@@ -101,23 +101,23 @@ html.is-belyaevo.is-mobile .faq {
 }
 
 html.is-belyaevo.is-mobile .reviews {
-  top: calc(3946px + var(--hero-h));
+  top: calc(4286px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .sales {
-  top: calc(4748px + var(--hero-h));
+  top: calc(5088px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .cta {
-  top: calc(4981px + var(--hero-h));
+  top: calc(5321px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .footer {
-  top: calc(5181px + var(--hero-h));
+  top: calc(5521px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .page {
-  height: calc(6386px + var(--hero-h));
+  height: calc(6726px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .map-switcher--location .map-switcher__icon,
