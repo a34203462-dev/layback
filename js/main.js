@@ -40,6 +40,7 @@
     document.documentElement.style.setProperty("--hero-h", heroH + "px");
     document.documentElement.style.setProperty("--hero-shift", (heroH - heroDesign) + "px");
     document.documentElement.style.setProperty("--hero-y", String(heroH / heroDesign));
+    layoutAfterFaq();
   }
 
   function initScale() {
@@ -536,6 +537,41 @@
     });
   }
 
+  function layoutAfterFaq() {
+    var faq = document.querySelector(".faq");
+    var reviews = document.querySelector(".reviews");
+    var sales = document.querySelector(".sales");
+    var cta = document.querySelector(".cta");
+    var footer = document.querySelector(".footer");
+    var page = document.querySelector(".page");
+    if (!faq || !reviews) return;
+
+    var mobile = isMobile();
+    var gap = mobile ? 100 : 200;
+    var top = faq.offsetTop + faq.offsetHeight + gap;
+
+    reviews.style.top = top + "px";
+    if (sales) sales.style.top = top + (mobile ? 802 : 913) + "px";
+    if (cta) cta.style.top = top + (mobile ? 1035 : 1227) + "px";
+    if (footer) {
+      var footerTop = top + (mobile ? 1235 : 1443);
+      footer.style.top = footerTop + "px";
+      if (page) {
+        page.style.height = footerTop + footer.offsetHeight + "px";
+      }
+    }
+  }
+
+  function scheduleFaqLayout() {
+    layoutAfterFaq();
+    var started = performance.now();
+    function tick(now) {
+      layoutAfterFaq();
+      if (now - started < 420) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
   function initFaq() {
     var list = document.querySelector(".js-faq");
     if (!list) return;
@@ -554,8 +590,10 @@
           item.classList.add("is-open");
           trigger.setAttribute("aria-expanded", "true");
         }
+        scheduleFaqLayout();
       });
     });
+    layoutAfterFaq();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
