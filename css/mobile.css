@@ -15,7 +15,7 @@ html.is-mobile {
 
 html.is-mobile .page {
   width: 393px;
-  height: calc(5626px + var(--hero-h));
+  height: calc(5746px + var(--hero-h));
 }
 
 html.is-mobile .ticker {
@@ -95,10 +95,11 @@ html.is-mobile .hero__brand {
   position: relative;
   top: auto;
   left: auto;
-  width: 192px;
-  padding-left: 10px;
+  width: auto;
+  max-width: 100%;
+  padding-left: 0;
   font-size: 48px;
-  text-align: right;
+  text-align: left;
 }
 
 html.is-mobile .hero__titles {
@@ -420,7 +421,7 @@ html.is-mobile .map-switcher--location .map-switcher__label {
 
 /* Reviews */
 html.is-mobile .reviews {
-  top: calc(3186px + var(--hero-h));
+  top: calc(3306px + var(--hero-h));
   width: 393px;
   height: 688px;
   overflow: hidden;
@@ -518,7 +519,7 @@ html.is-mobile .reviews__more-text {
 
 /* Sales */
 html.is-mobile .sales {
-  top: calc(3988px + var(--hero-h));
+  top: calc(4108px + var(--hero-h));
   width: 393px;
   height: 190px;
   overflow: hidden;
@@ -563,7 +564,7 @@ html.is-mobile .sales__dots {
 
 /* CTA */
 html.is-mobile .cta {
-  top: calc(4221px + var(--hero-h));
+  top: calc(4341px + var(--hero-h));
   left: 16px;
   width: 361px;
 }
@@ -574,7 +575,7 @@ html.is-mobile .cta__btn {
 
 /* Footer */
 html.is-mobile .footer {
-  top: calc(4421px + var(--hero-h));
+  top: calc(4541px + var(--hero-h));
   width: 393px;
   height: 1205px;
 }
