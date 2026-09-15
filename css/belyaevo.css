@@ -96,24 +96,28 @@ html.is-belyaevo.is-mobile .location {
   top: calc(2196px + var(--hero-h));
 }
 
-html.is-belyaevo.is-mobile .reviews {
+html.is-belyaevo.is-mobile .faq {
   top: calc(3186px + var(--hero-h));
 }
 
+html.is-belyaevo.is-mobile .reviews {
+  top: calc(3946px + var(--hero-h));
+}
+
 html.is-belyaevo.is-mobile .sales {
-  top: calc(3988px + var(--hero-h));
+  top: calc(4748px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .cta {
-  top: calc(4221px + var(--hero-h));
+  top: calc(4981px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .footer {
-  top: calc(4421px + var(--hero-h));
+  top: calc(5181px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .page {
-  height: calc(5626px + var(--hero-h));
+  height: calc(6386px + var(--hero-h));
 }
 
 html.is-belyaevo.is-mobile .map-switcher--location .map-switcher__icon,

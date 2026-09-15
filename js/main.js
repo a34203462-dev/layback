@@ -536,6 +536,28 @@
     });
   }
 
+  function initFaq() {
+    var list = document.querySelector(".js-faq");
+    if (!list) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll(".faq__item"));
+    items.forEach(function (item) {
+      var trigger = item.querySelector(".faq__trigger");
+      if (!trigger) return;
+      trigger.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        items.forEach(function (other) {
+          other.classList.remove("is-open");
+          var otherTrigger = other.querySelector(".faq__trigger");
+          if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          item.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initScale();
     initHeader();
@@ -543,5 +565,6 @@
     initReviews();
     initOffers();
     initMaps();
+    initFaq();
   });
 })();

@@ -274,7 +274,7 @@ button {
 .page {
   position: relative;
   width: 1512px;
-  height: calc(6751px + var(--hero-shift) + var(--ticker-h));
+  height: calc(7753px + var(--hero-shift) + var(--ticker-h));
   margin: 0 auto;
   overflow-x: hidden;
   overflow-y: visible;
@@ -1104,10 +1104,108 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
   color: #141414;
 }
 
+/* ===== FAQ ===== */
+.faq {
+  position: absolute;
+  top: calc(4530px + var(--hero-shift) + var(--ticker-h));
+  left: 32px;
+  width: 1448px;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.faq__item {
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.faq__trigger {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 48px 96px 48px 64px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__question {
+  flex: 1;
+  min-width: 0;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.96px;
+  color: #141414;
+}
+
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: 8px;
+}
+
+.faq__icon img {
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.faq__icon-minus {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.faq__item.is-open .faq__icon-plus {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.faq__item.is-open .faq__icon-minus {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq__item.is-open .faq__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq__answer {
+  padding: 0 96px 40px 64px;
+  max-width: 760px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.15;
+  color: #141414;
+}
+
 /* ===== Reviews ===== */
 .reviews {
   position: absolute;
-  top: calc(4530px + var(--hero-shift) + var(--ticker-h));
+  top: calc(5532px + var(--hero-shift) + var(--ticker-h));
   left: 0;
   width: 1512px;
   height: 801px;
@@ -1326,7 +1424,7 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 /* ===== Sales ===== */
 .sales {
   position: absolute;
-  top: calc(5443px + var(--hero-shift) + var(--ticker-h));
+  top: calc(6445px + var(--hero-shift) + var(--ticker-h));
   left: 0;
   width: 1512px;
   height: 250px;
@@ -1651,7 +1749,7 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 /* ===== CTA ===== */
 .cta {
   position: absolute;
-  top: calc(5757px + var(--hero-shift) + var(--ticker-h));
+  top: calc(6759px + var(--hero-shift) + var(--ticker-h));
   left: 32px;
   width: 1448px;
   display: flex;
@@ -1695,7 +1793,7 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 /* ===== Footer ===== */
 .footer {
   position: absolute;
-  top: calc(5973px + var(--hero-shift) + var(--ticker-h));
+  top: calc(6975px + var(--hero-shift) + var(--ticker-h));
   left: 0;
   width: 1512px;
   height: 778px;
