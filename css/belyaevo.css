@@ -32,18 +32,6 @@ html.is-belyaevo .map-switcher--location .map-switcher__item:hover {
   opacity: 0.75;
 }
 
-html.is-belyaevo .link-arrow__text--mobile {
-  display: none;
-}
-
-html.is-belyaevo.is-mobile .link-arrow__text--desktop {
-  display: none;
-}
-
-html.is-belyaevo.is-mobile .link-arrow__text--mobile {
-  display: inline;
-}
-
 html.is-belyaevo.is-mobile .hero__bg {
   overflow: hidden;
 }

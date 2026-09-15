@@ -529,7 +529,9 @@ button {
 }
 
 .hero__title {
+  margin: 0;
   font-size: 88px;
+  font-weight: inherit;
   line-height: 1;
   white-space: pre;
 }
@@ -803,6 +805,7 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 }
 
 .link-arrow__text {
+  margin: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -870,7 +873,9 @@ html.is-light .about .link-arrow:hover .link-arrow__icon img {
 
 .services__title {
   width: 1248px;
+  margin: 0;
   font-size: 90px;
+  font-weight: inherit;
   line-height: 0.9;
   text-align: center;
   color: #141414;
