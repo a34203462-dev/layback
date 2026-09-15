@@ -299,8 +299,8 @@ html.is-mobile .gallery__img-desktop {
 }
 
 html.is-mobile .gallery__photo--05 img {
-  object-fit: fill;
-  object-position: center;
+  object-fit: cover;
+  object-position: bottom;
 }
 
 html.is-mobile .gallery__controls,

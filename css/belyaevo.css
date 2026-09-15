@@ -135,7 +135,7 @@ html.is-belyaevo.is-mobile .gallery__photo.is-center {
 
 html.is-belyaevo .gallery__photo img,
 html.is-belyaevo.is-mobile .gallery__photo img {
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
   left: 0;
   top: 0;
