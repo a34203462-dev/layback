@@ -4,18 +4,18 @@ html.is-belyaevo .hero__knockout {
   display: none;
 }
 
-html.is-belyaevo:not(.is-mobile) .hero__brand {
+html.is-belyaevo:not(.is-mobile):not(.is-tablet) .hero__brand {
   top: 506px;
   z-index: 2;
 }
 
-html.is-belyaevo:not(.is-mobile) .hero__titles {
+html.is-belyaevo:not(.is-mobile):not(.is-tablet) .hero__titles {
   top: 595px;
   bottom: 110px;
   justify-content: space-between;
 }
 
-html.is-belyaevo:not(.is-mobile) .hero__title {
+html.is-belyaevo:not(.is-mobile):not(.is-tablet) .hero__title {
   width: 950px;
   white-space: nowrap;
 }
@@ -152,4 +152,16 @@ html.is-belyaevo.is-mobile .map-switcher--location {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+}
+
+/* ===== Tablet 744 — макет Tab 744 / Филиал Беляево ===== */
+
+/* в макете заголовок разбит на «МАССАЖ у метро» / «беляево» */
+html.is-belyaevo.is-tablet .hero__title-nl {
+  display: revert;
+}
+
+/* в макете взят мобильный кадр, выровненный по центру */
+html.is-belyaevo.is-tablet .hero__bg-mobile {
+  object-position: center 51%;
 }
