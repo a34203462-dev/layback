@@ -1,0 +1,752 @@
+/* ===== Tablet / 744 — референс Tab 744, филиал ===== */
+
+/* пробел появляется только там, где мобильный <br> скрыт */
+.is-tablet-space {
+  display: none;
+}
+
+html.is-tablet .is-tablet-space {
+  display: inline;
+}
+
+html.is-tablet .is-mobile-only {
+  display: none !important;
+}
+
+html.is-tablet .is-mobile-break {
+  display: none;
+}
+
+/* в макете Tab заголовок услуг начинается с отдельной строки «В студии» */
+html.is-tablet .services__title .is-mobile-break {
+  display: inline;
+}
+
+html.is-tablet .is-tablet-break {
+  display: inline;
+}
+
+html.is-tablet {
+  --sticky-cta-bottom: 16px;
+  --sticky-cta-stack: 104px;
+  --sticky-cta-gap: 24px;
+  --tablet-pad: 32px;
+  --tablet-inner: 680px;
+  --ticker-h: 32px;
+}
+
+html.is-tablet .page {
+  width: 744px;
+  height: calc(7200px + var(--hero-h));
+}
+
+html.is-tablet .ticker {
+  display: flex;
+  width: 744px;
+}
+
+html.is-tablet .ticker__item {
+  font-size: 24px;
+}
+
+/* Header — как Tab: inset 32, ширина 680 */
+html.is-tablet .header {
+  top: 4px;
+  width: 680px;
+}
+
+html.is-tablet .header__logo {
+  width: 100px;
+  height: auto;
+}
+
+html.is-tablet .header__actions {
+  padding-top: 18px;
+}
+
+html.is-tablet .header__buttons {
+  width: auto;
+  gap: 8px;
+}
+
+html.is-tablet .header__buttons .btn-ghost {
+  display: none;
+}
+
+html.is-tablet .btn-menu {
+  width: 66px;
+  height: 48px;
+}
+
+/* Hero — на весь экран, как мобилка + размеры Tab */
+html.is-tablet .hero-stack {
+  width: 744px;
+  height: calc(var(--hero-h) + var(--ticker-h));
+}
+
+html.is-tablet .hero {
+  width: 744px;
+  height: var(--hero-h);
+  padding: 219px 32px 165px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+html.is-tablet .hero__bg,
+html.is-tablet .hero__bg img {
+  width: 744px;
+  height: 100%;
+}
+
+html.is-tablet .hero__bg img {
+  object-fit: cover;
+  object-position: center 72%;
+}
+
+html.is-tablet .hero__bg-desktop {
+  display: none;
+}
+
+html.is-tablet .hero__bg-mobile {
+  display: block;
+  width: 744px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 72%;
+}
+
+html.is-tablet .hero__knockout,
+html.is-tablet .hero__overlay {
+  display: none !important;
+}
+
+html.is-tablet .hero__dash-spacer {
+  display: none;
+}
+
+html.is-tablet .hero__brand {
+  position: relative;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  width: auto;
+  max-width: 100%;
+  padding-left: 0;
+  font-size: 72px;
+  line-height: 1;
+  text-align: left;
+  z-index: 2;
+}
+
+html.is-tablet .hero__titles {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 2px;
+  transform: none;
+  min-height: 0;
+  z-index: 2;
+}
+
+html.is-tablet .hero__title {
+  font-size: 72px;
+  white-space: normal;
+  line-height: 1;
+}
+
+html.is-tablet .hero__meta {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  font-size: 24px;
+  white-space: normal;
+}
+
+html.is-tablet .hero__cta {
+  display: flex;
+  position: fixed;
+  z-index: 5000;
+  left: 50%;
+  bottom: var(--sticky-cta-bottom);
+  width: 680px;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+html.is-tablet .hero__cta.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html.is-tablet .hero__cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 48px;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+html.is-tablet .hero__cta-btn--solid {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #141414;
+}
+
+html.is-tablet .hero__cta-btn--ghost {
+  background: rgba(255, 253, 252, 0.1);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+html.is-tablet.is-light .hero__cta-btn--solid {
+  background: #141414;
+  border-color: #141414;
+  color: #fff;
+}
+
+html.is-tablet.is-light .hero__cta-btn--ghost {
+  background: rgba(20, 20, 20, 0.08);
+  border-color: #141414;
+  color: #141414;
+}
+
+/* Компактный планшет / ?tablet=1 на широком мониторе */
+html.is-tablet-compact .hero {
+  padding-top: 120px;
+  padding-bottom: 150px;
+}
+
+html.is-tablet-compact .hero__brand,
+html.is-tablet-compact .hero__title {
+  font-size: 52px;
+}
+
+html.is-tablet-compact .hero__meta {
+  font-size: 18px;
+}
+
+html.is-tablet-compact .header__logo {
+  width: 72px;
+}
+
+/* About + Gallery */
+html.is-tablet .about {
+  width: 744px;
+  padding: 120px 0 48px;
+  gap: 100px;
+}
+
+html.is-tablet .about__intro {
+  width: 566px;
+  font-size: 32px;
+  line-height: 1.2;
+  gap: 24px;
+}
+
+/* заголовок в 566px переносится сам, мобильный br даёт лишнюю строку */
+html.is-tablet .about__intro p:first-child br {
+  display: none;
+}
+
+html.is-tablet .gallery {
+  width: 744px;
+  gap: 32px;
+}
+
+html.is-tablet .gallery__viewport {
+  width: 744px;
+  height: 540px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+html.is-tablet .gallery__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+html.is-tablet .gallery__track {
+  position: relative;
+  top: auto;
+  left: auto;
+  height: 540px;
+  gap: 12px;
+  padding: 0 40px;
+  transform: none !important;
+  transition: none !important;
+  will-change: auto;
+}
+
+html.is-tablet .gallery__photo,
+html.is-tablet .gallery__photo.is-center {
+  position: relative;
+  width: 520px;
+  height: 540px;
+  overflow: hidden;
+  border-radius: 4px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  flex-shrink: 0;
+  transition: none;
+}
+
+html.is-tablet .gallery__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+html.is-tablet .gallery__photo--04 img {
+  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html.is-tablet .gallery__img-desktop {
+  display: none !important;
+}
+
+html.is-tablet .gallery__img-mobile {
+  display: block !important;
+}
+
+html.is-tablet .gallery__controls,
+html.is-tablet .gallery__arrow {
+  display: none !important;
+}
+
+html.is-tablet .link-arrow__text {
+  font-size: 18px;
+}
+
+/* Amenities — 2×2, плотно после карусели */
+html.is-tablet .amenities {
+  top: calc(980px + var(--hero-h));
+  width: 744px;
+  padding: 0 32px 136px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+html.is-tablet .amenity {
+  width: 100%;
+  height: 72px;
+  padding: 16px 20px;
+}
+
+html.is-tablet .amenity span {
+  font-size: 18px;
+  white-space: normal;
+}
+
+/* Services */
+html.is-tablet .services {
+  top: calc(1260px + var(--hero-h));
+  left: 0;
+  width: 744px;
+  padding: 0 32px 136px;
+  gap: 48px;
+}
+
+html.is-tablet .services__title {
+  width: 100%;
+  font-size: 72px;
+  line-height: 0.9;
+  text-align: center;
+  white-space: normal;
+}
+
+html.is-tablet .services .link-arrow {
+  align-self: center;
+}
+
+/* Location — колонка, как на узком Tab */
+html.is-tablet .location {
+  top: calc(1780px + var(--hero-h));
+  left: 32px;
+  transform: translate3d(0, var(--rise, 0px), 0);
+  width: 680px;
+  padding-bottom: 136px;
+  gap: 40px;
+  align-items: stretch;
+}
+
+html.is-tablet .location__row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+/* в макете карта стоит между лидом и адресом */
+html.is-tablet .location__address {
+  display: contents;
+}
+
+html.is-tablet .location__title {
+  order: 0;
+}
+
+html.is-tablet .location__lead {
+  order: 1;
+}
+
+html.is-tablet .location__map {
+  order: 2;
+}
+
+html.is-tablet .location__full {
+  order: 3;
+}
+
+html.is-tablet .location__metros {
+  order: 4;
+  margin-top: -16px;
+}
+
+html.is-tablet .location__lead .is-mobile-break {
+  display: inline;
+}
+
+html.is-tablet .location__title {
+  font-size: 136px;
+  line-height: 0.9;
+  text-align: left;
+}
+
+html.is-tablet .location__lead {
+  font-size: 22px;
+  white-space: normal;
+}
+
+html.is-tablet .location__map {
+  width: 680px;
+  height: 420px;
+}
+
+html.is-tablet .location__map-img {
+  width: 100%;
+  height: 100%;
+}
+
+html.is-tablet .location__map-img iframe {
+  width: 100%;
+  height: 100%;
+}
+
+html.is-tablet .location__full {
+  font-size: 18px;
+  white-space: normal;
+}
+
+html.is-tablet .location__metros {
+  gap: 14px;
+}
+
+html.is-tablet .location__metro span {
+  font-size: 18px;
+}
+
+html.is-tablet .location .link-arrow {
+  justify-content: center;
+  width: auto;
+  align-self: center;
+  margin-top: 0;
+}
+
+html.is-tablet .map-switcher--location .map-switcher__label {
+  font-size: 14px;
+}
+
+/* FAQ */
+html.is-tablet .faq {
+  top: calc(2840px + var(--hero-h));
+  left: 0;
+  width: 744px;
+  z-index: 2;
+}
+
+html.is-tablet .faq__trigger {
+  gap: 24px;
+  padding: 28px 32px;
+}
+
+html.is-tablet .faq__question {
+  max-width: 632px;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+html.is-tablet .faq__icon {
+  width: 24px;
+  height: 24px;
+}
+
+html.is-tablet .faq__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+html.is-tablet .faq__answer {
+  padding: 0 32px 28px;
+  max-width: 680px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Reviews */
+html.is-tablet .reviews {
+  top: calc(4300px + var(--hero-h));
+  width: 744px;
+  height: 738px;
+  overflow: hidden;
+}
+
+html.is-tablet .reviews__title {
+  width: 680px;
+  margin: 24px 0 0 32px;
+  font-size: 136px;
+  line-height: 0.9;
+}
+
+html.is-tablet .reviews__pin-slot {
+  top: 182px;
+  left: 439px;
+  transform: none;
+  z-index: 6;
+}
+
+html.is-tablet .reviews__slider {
+  width: 744px;
+  height: 428px;
+  margin-top: 64px;
+  overflow: hidden;
+}
+
+html.is-tablet .reviews__track {
+  height: 428px;
+}
+
+html.is-tablet .reviews-slide,
+html.is-tablet .reviews-slide.is-prev,
+html.is-tablet .reviews-slide.is-next {
+  width: 175px;
+  height: 309px;
+  margin: 0 16px 0 0;
+}
+
+html.is-tablet .reviews-slide.is-active {
+  width: 242px;
+  height: 428px;
+}
+
+/* на планшете резкий только центральный слайд */
+html.is-tablet .reviews-slide.is-prev,
+html.is-tablet .reviews-slide.is-next {
+  filter: blur(3px);
+}
+
+html.is-tablet .reviews-slide.is-prev::after,
+html.is-tablet .reviews-slide.is-next::after {
+  opacity: 1;
+}
+
+html.is-tablet .reviews-slide img {
+  top: -12%;
+  width: 116%;
+}
+
+/* в макете Tab стрелок у отзывов нет — листается свайпом */
+html.is-tablet .reviews-slider__nav {
+  display: none;
+}
+
+html.is-tablet .reviews__more {
+  margin-top: 56px;
+}
+
+html.is-tablet .reviews__more-text {
+  font-size: 18px;
+}
+
+/* Sales — горизонтальный ряд как Tab / Sale */
+html.is-tablet .sales {
+  top: calc(5140px + var(--hero-h));
+  width: 744px;
+  height: 245px;
+  overflow: hidden;
+}
+
+html.is-tablet .sales .swiper {
+  overflow: visible;
+}
+
+html.is-tablet .sale-card {
+  width: 392px;
+  height: 200px;
+}
+
+html.is-tablet .sale-card__title {
+  font-size: 36px;
+}
+
+html.is-tablet .sale-card--wake .sale-card__title {
+  font-size: 36px;
+  height: auto;
+}
+
+html.is-tablet .sale-card--wake .sale-card__discount {
+  font-size: 72px;
+}
+
+html.is-tablet .sale-card--march .sale-card__title {
+  font-size: 48px;
+}
+
+html.is-tablet .sale-card--tg .sale-card__title {
+  font-size: 64px;
+}
+
+html.is-tablet .sale-card__btn {
+  height: 28px;
+  font-size: 14px;
+}
+
+html.is-tablet .sales__dots {
+  top: 224px;
+}
+
+/* CTA — кнопки на всю ширину контента Tab */
+html.is-tablet .cta {
+  top: calc(5440px + var(--hero-h));
+  left: 12px;
+  width: 720px;
+  gap: 8px;
+}
+
+html.is-tablet .cta__btn {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+}
+
+/* Footer */
+html.is-tablet .footer {
+  top: calc(5640px + var(--hero-h));
+  width: 744px;
+  height: 938px;
+}
+
+html.is-tablet .footer__top {
+  flex-direction: column;
+  height: auto;
+  padding: 0 32px;
+  gap: 46px;
+}
+
+html.is-tablet .footer__content {
+  width: 100%;
+}
+
+html.is-tablet .footer__brand-text {
+  font-size: 136px;
+  margin-bottom: 33px;
+}
+
+html.is-tablet .footer__nav {
+  gap: 49px;
+  justify-content: flex-start;
+}
+
+/* в макете меню слева, документы справа */
+html.is-tablet .footer__col--menu {
+  order: 0;
+  width: 126px;
+}
+
+html.is-tablet .footer__col--docs {
+  order: 1;
+  width: 166px;
+}
+
+/* на сайте в колонке документов на две ссылки больше, чем в макете,
+   поэтому шаг одинаковый — блок навигации остаётся высотой 200px */
+html.is-tablet .footer__col li {
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+html.is-tablet .footer__col a {
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  white-space: normal;
+}
+
+html.is-tablet .footer__map {
+  width: 678px;
+  height: 200px;
+}
+
+html.is-tablet .footer__map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+html.is-tablet .map-switcher--footer {
+  top: 16px;
+  left: 16px;
+}
+
+html.is-tablet .footer__legal {
+  top: auto;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 32px;
+}
+
+html.is-tablet .footer__legal-text {
+  width: 100%;
+  white-space: normal;
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: left;
+}

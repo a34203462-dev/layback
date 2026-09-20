@@ -8,12 +8,19 @@
   <script>
     (function () {
       var q = location.search;
-      var mobile = /\bmobile\b/.test(q) ? true : /\bdesktop\b/.test(q) ? false : window.innerWidth < 768;
-      var vp = mobile ? 393 : 1512;
-      var hero = mobile ? 852 : 982;
-      var z = window.innerWidth / vp;
-      var h = ((mobile && window.visualViewport) ? window.visualViewport.height : window.innerHeight) / z;
+      var w = window.innerWidth;
+      var forcedMobile = /\bmobile\b/.test(q);
+      var forcedTablet = /\btablet\b/.test(q);
+      var forcedDesktop = /\bdesktop\b/.test(q);
+      var mobile = forcedMobile ? true : (forcedTablet || forcedDesktop) ? false : w < 768;
+      var tablet = !mobile && (forcedTablet ? true : forcedDesktop ? false : w >= 768 && w < 1100);
+      var vp = mobile ? 393 : tablet ? 744 : 1512;
+      var hero = mobile ? 852 : tablet ? 1000 : 982;
+      var z = w / vp;
+      var h = ((mobile || tablet) && window.visualViewport ? window.visualViewport.height : window.innerHeight) / z;
       document.documentElement.classList.toggle("is-mobile", mobile);
+      document.documentElement.classList.toggle("is-tablet", tablet);
+      document.documentElement.classList.toggle("is-tablet-compact", tablet && h < 780);
       document.documentElement.style.zoom = z;
       document.documentElement.style.setProperty("--page-zoom", String(z));
       document.documentElement.style.setProperty("--hero-h", h + "px");
@@ -24,6 +31,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/styles.css?v=18">
   <link rel="stylesheet" href="css/mobile.css?v=19">
+  <link rel="stylesheet" href="css/tablet.css?v=1">
 </head>
 <body>
   <div class="page">
@@ -98,7 +106,7 @@
 
     <section class="about">
       <div class="about__intro">
-        <p>Студия профессионального массажа<br>в центре Москвы</p>
+        <p>Студия профессионального массажа<span class="is-tablet-space"> </span><br>в центре Москвы</p>
         <p> Здесь можно расслабиться после рабочего дня<br>и выбрать подходящий формат массажа</p>
       </div>
       <div class="gallery">
@@ -419,6 +427,6 @@
     <a class="hero__cta-btn hero__cta-btn--ghost" href="https://lay-back.ru/sertifikaty/">сертификат</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/main.js?v=12"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>

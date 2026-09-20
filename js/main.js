@@ -1,21 +1,34 @@
 (function () {
   const VIEWPORT_DESKTOP = 1512;
+  const VIEWPORT_TABLET = 744;
   const VIEWPORT_MOBILE = 393;
   const SIDE = 820;
   const CENTER = 1120;
   const GAP = 16;
   const PHOTO_MOBILE = 349;
   const GAP_MOBILE = 8;
+  const PHOTO_TABLET = 520;
+  const GAP_TABLET = 12;
   const HERO_DESKTOP = 982;
+  const HERO_TABLET = 1000;
   const HERO_MOBILE = 852;
   const MOBILE_BREAK = 768;
+  const TABLET_MAX = 1100;
+  /* планшетная раскладка живёт только на страницах, где подключён tablet.css */
+  const TABLET_ENABLED = !!document.querySelector('link[href*="tablet.css"]');
 
   function isMobile() {
     return document.documentElement.classList.contains("is-mobile");
   }
 
+  function isTablet() {
+    return document.documentElement.classList.contains("is-tablet");
+  }
+
   function viewport() {
-    return isMobile() ? VIEWPORT_MOBILE : VIEWPORT_DESKTOP;
+    if (isMobile()) return VIEWPORT_MOBILE;
+    if (isTablet()) return VIEWPORT_TABLET;
+    return VIEWPORT_DESKTOP;
   }
 
   function viewHeight() {
@@ -28,13 +41,20 @@
     if (!width || !height) return;
     var q = location.search;
     var forcedMobile = /\bmobile\b/.test(q);
+    var forcedTablet = /\btablet\b/.test(q);
     var forcedDesktop = /\bdesktop\b/.test(q);
-    var mobile = forcedMobile ? true : forcedDesktop ? false : width < MOBILE_BREAK;
-    var vp = mobile ? VIEWPORT_MOBILE : VIEWPORT_DESKTOP;
-    var heroDesign = mobile ? HERO_MOBILE : HERO_DESKTOP;
+    var mobile = forcedMobile ? true : (forcedTablet || forcedDesktop) ? false : width < MOBILE_BREAK;
+    var tablet =
+      TABLET_ENABLED &&
+      !mobile &&
+      (forcedTablet ? true : forcedDesktop ? false : width >= MOBILE_BREAK && width < TABLET_MAX);
+    var vp = mobile ? VIEWPORT_MOBILE : tablet ? VIEWPORT_TABLET : VIEWPORT_DESKTOP;
+    var heroDesign = mobile ? HERO_MOBILE : tablet ? HERO_TABLET : HERO_DESKTOP;
     var zoom = width / vp;
     var heroH = height / zoom;
     document.documentElement.classList.toggle("is-mobile", mobile);
+    document.documentElement.classList.toggle("is-tablet", tablet);
+    document.documentElement.classList.toggle("is-tablet-compact", tablet && heroH < 780);
     document.documentElement.style.zoom = String(zoom);
     document.documentElement.style.setProperty("--page-zoom", String(zoom));
     document.documentElement.style.setProperty("--hero-h", heroH + "px");
@@ -173,14 +193,14 @@
       }
 
       var textY = 0;
-      if (!isMobile() && y > 0) {
+      if (!isMobile() && !isTablet() && y > 0) {
         textY = -y * 0.16;
       }
       root.style.setProperty("--hero-text-y", textY + "px");
 
       var isLight = false;
       var viewH = viewHeight();
-      if (isMobile() && amenities && lightTrigger) {
+      if ((isMobile() || isTablet()) && amenities && lightTrigger) {
         isLight =
           lightTrigger.getBoundingClientRect().top <= viewH * 0.42 ||
           amenities.getBoundingClientRect().top <= viewH * 0.92;
@@ -204,7 +224,7 @@
       if (header) header.classList.toggle("is-dark", isLight);
       wasLight = isLight;
 
-      if (isMobile() && heroCta && pageCta) {
+      if ((isMobile() || isTablet()) && heroCta && pageCta) {
         heroCta.classList.toggle(
           "is-hidden",
           pageCta.getBoundingClientRect().top <= viewH - 24
@@ -358,8 +378,11 @@
     cloneSet(originals, track, false);
     cloneSet(originals, track, true);
 
-    var slide = PHOTO_MOBILE + GAP_MOBILE;
-    var startX = 8 + count * slide;
+    var photoW = isTablet() ? PHOTO_TABLET : PHOTO_MOBILE;
+    var gap = isTablet() ? GAP_TABLET : GAP_MOBILE;
+    var pad = isTablet() ? 40 : 8;
+    var slide = photoW + gap;
+    var startX = pad + count * slide;
     var cycle = count * slide;
     var jumping = false;
 
@@ -392,7 +415,7 @@
   }
 
   function initGallery() {
-    if (isMobile()) {
+    if (isMobile() || isTablet()) {
       var track = document.getElementById("galleryTrack");
       if (track) {
         track.style.setProperty("transform", "none", "important");
@@ -426,30 +449,42 @@
   var REVIEW_SMALL = 244;
   var REVIEW_GAP = 32;
   var REVIEW_EDGE = 72;
+  var REVIEW_LARGE_T = 242;
+  var REVIEW_SMALL_T = 175;
+  var REVIEW_GAP_T = 16;
+  var REVIEW_EDGE_T = 16;
   var REVIEW_LARGE_M = 242;
   var REVIEW_SMALL_M = 175;
   var REVIEW_GAP_M = 16;
   var REVIEW_EDGE_M = 16;
 
   function reviewIsLarge(i, activeIndex) {
-    if (isMobile()) return i === activeIndex;
+    if (isMobile() || isTablet()) return i === activeIndex;
     return Math.abs(i - activeIndex) <= 1;
   }
 
   function reviewGap() {
-    return isMobile() ? REVIEW_GAP_M : REVIEW_GAP;
+    if (isMobile()) return REVIEW_GAP_M;
+    if (isTablet()) return REVIEW_GAP_T;
+    return REVIEW_GAP;
   }
 
   function reviewEdge() {
-    return isMobile() ? REVIEW_EDGE_M : REVIEW_EDGE;
+    if (isMobile()) return REVIEW_EDGE_M;
+    if (isTablet()) return REVIEW_EDGE_T;
+    return REVIEW_EDGE;
   }
 
   function reviewLarge() {
-    return isMobile() ? REVIEW_LARGE_M : REVIEW_LARGE;
+    if (isMobile()) return REVIEW_LARGE_M;
+    if (isTablet()) return REVIEW_LARGE_T;
+    return REVIEW_LARGE;
   }
 
   function reviewSmall() {
-    return isMobile() ? REVIEW_SMALL_M : REVIEW_SMALL;
+    if (isMobile()) return REVIEW_SMALL_M;
+    if (isTablet()) return REVIEW_SMALL_T;
+    return REVIEW_SMALL;
   }
 
   function reviewGapAfter(i, activeIndex) {
@@ -507,8 +542,8 @@
       loop: true,
       speed: 300,
       slidesPerView: "auto",
-      spaceBetween: isMobile() ? 16 : 24,
-      slidesOffsetBefore: isMobile() ? 16 : 17,
+      spaceBetween: isMobile() ? 16 : isTablet() ? 16 : 24,
+      slidesOffsetBefore: isMobile() ? 16 : isTablet() ? 30 : 17,
       allowTouchMove: true,
       simulateTouch: true,
       autoplay: {
@@ -537,6 +572,32 @@
     });
   }
 
+  function layoutTabletStack() {
+    if (!isTablet()) return;
+    var about = document.querySelector(".about");
+    var amenities = document.querySelector(".amenities");
+    var services = document.querySelector(".services");
+    var location = document.querySelector(".location");
+    var faq = document.querySelector(".faq");
+    if (!about || !amenities) return;
+
+    /* отступы уже заложены в padding-bottom секций (136px), см. макет Tab 744 */
+    var y = about.offsetTop + about.offsetHeight + 123;
+    amenities.style.top = y + "px";
+    y += amenities.offsetHeight;
+    if (services) {
+      services.style.top = y + "px";
+      y += services.offsetHeight;
+    }
+    if (location) {
+      location.style.top = y + "px";
+      y += location.offsetHeight;
+    }
+    if (faq) {
+      faq.style.top = y + "px";
+    }
+  }
+
   function layoutAfterFaq() {
     var faq = document.querySelector(".faq");
     var reviews = document.querySelector(".reviews");
@@ -546,15 +607,18 @@
     var page = document.querySelector(".page");
     if (!faq || !reviews) return;
 
+    layoutTabletStack();
+
     var mobile = isMobile();
-    var gap = mobile ? 100 : 200;
+    var tablet = isTablet();
+    var gap = mobile ? 100 : tablet ? 151 : 200;
     var top = faq.offsetTop + faq.offsetHeight + gap;
 
     reviews.style.top = top + "px";
-    if (sales) sales.style.top = top + (mobile ? 802 : 913) + "px";
-    if (cta) cta.style.top = top + (mobile ? 1035 : 1227) + "px";
+    if (sales) sales.style.top = top + (mobile ? 802 : tablet ? 834 : 913) + "px";
+    if (cta) cta.style.top = top + (mobile ? 1035 : tablet ? 1119 : 1227) + "px";
     if (footer) {
-      var footerTop = top + (mobile ? 1235 : 1443);
+      var footerTop = top + (mobile ? 1235 : tablet ? 1319 : 1443);
       footer.style.top = footerTop + "px";
       if (page) {
         page.style.height = footerTop + footer.offsetHeight + "px";
