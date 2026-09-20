@@ -7,6 +7,10 @@ html.is-mobile .is-mobile-break {
   display: inline;
 }
 
+html.is-mobile .is-break-space {
+  display: inline;
+}
+
 html.is-mobile {
   --sticky-cta-bottom: 5px;
   --sticky-cta-stack: 104px;

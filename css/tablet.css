@@ -1,11 +1,6 @@
 /* ===== Tablet / 744 — референс Tab 744, филиал ===== */
 
-/* пробел появляется только там, где мобильный <br> скрыт */
-.is-tablet-space {
-  display: none;
-}
-
-html.is-tablet .is-tablet-space {
+html.is-tablet .is-break-space {
   display: inline;
 }
 

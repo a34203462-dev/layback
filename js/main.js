@@ -17,6 +17,9 @@
   /* планшетная раскладка живёт только на страницах, где подключён tablet.css */
   const TABLET_ENABLED = !!document.querySelector('link[href*="tablet.css"]');
 
+  var viewMode = null;
+  var reviewsTrack = null;
+
   function isMobile() {
     return document.documentElement.classList.contains("is-mobile");
   }
@@ -61,6 +64,12 @@
     document.documentElement.style.setProperty("--hero-shift", (heroH - heroDesign) + "px");
     document.documentElement.style.setProperty("--hero-y", String(heroH / heroDesign));
     layoutAfterFaq();
+
+    /* размеры слайдов и отступы у каждого режима свои, поэтому при переходе
+       между ними карусель нужно пересобрать — иначе активный слайд уезжает за экран */
+    var mode = mobile ? "mobile" : tablet ? "tablet" : "desktop";
+    if (viewMode && viewMode !== mode && reviewsTrack) reviewsTrack.relayout();
+    viewMode = mode;
   }
 
   function initScale() {
@@ -331,6 +340,12 @@
     }
     track.addEventListener("pointerdown", onPointerDown);
     track.addEventListener("pointerup", onPointerUp);
+
+    return {
+      relayout: function () {
+        apply(index, false);
+      }
+    };
   }
 
   function initMobileSwiper(options) {
@@ -494,7 +509,7 @@
   }
 
   function initReviews() {
-    initLoopedTrack({
+    reviewsTrack = initLoopedTrack({
       trackId: "reviewsTrack",
       itemSelector: ".reviews-slide",
       activeClass: "is-active",

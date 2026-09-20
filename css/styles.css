@@ -566,6 +566,11 @@ button {
   display: none;
 }
 
+/* пробел вместо скрытого переноса — иначе слова слипаются */
+.is-break-space {
+  display: none;
+}
+
 .hero__meta {
   display: flex;
   align-items: center;
